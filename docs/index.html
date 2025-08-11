@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pestaway: Pest Management Chatbot with Speech</title>
+  <meta name="description" content="Pestaway: A Pest Management Chatbot with Integrated Speech Capability. Accepted in TENCON 2025. 1st Runner-up (Best Video Presentation), FUSERS 2025." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:wght@600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#1c1c1c; /* lighter shade of black */
+      --ink:#ffffff;
+      --muted:#d6d6d6;
+      --subtle:#2a2a2a;
+      --line:#3d3d3d;
+      --accent:#ffcc00;
+      --kbd:#333333;
+      --mono:#ffcc00;
+      --shadow:0 4px 14px rgba(0,0,0,.5);
+      --radius:14px;
+      --content-max: 980px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; background:var(--bg); color:var(--ink);
+      font-family: Inter, sans-serif;
+      line-height:1.58; letter-spacing:.01em;
+    }
+    a{color:var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
+    main{max-width:var(--content-max); padding:34px 20px; margin:auto}
+    h1,h2{font-family:"Source Serif 4", serif}
+    h1{font-size:clamp(28px,4vw,48px); margin:0 0 8px; color:var(--accent)}
+    .badges{display:flex; gap:10px; flex-wrap:wrap; margin:12px 0 6px}
+    .badge{background:var(--kbd); border-radius:999px; padding:6px 10px; font-weight:600; font-size:12px; text-transform:uppercase; letter-spacing:.06em; color:var(--accent)}
+    .subtitle{color:var(--muted); font-size:18px; margin:8px 0 0}
+    .authors{display:flex; flex-wrap:wrap; gap:8px 12px; margin:16px 0 6px}
+    .affil{color:var(--muted); font-size:15px}
+    .cta{display:flex; flex-wrap:wrap; gap:10px; margin:18px 0 0}
+    .btn{display:inline-flex; align-items:center; gap:10px; padding:11px 16px; border-radius:12px; border:1px solid var(--accent); background:transparent; font-weight:700; color:var(--accent)}
+    .btn.primary{background:var(--accent); color:#000;}
+    .card{background:var(--subtle); border:1px solid var(--line); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow)}
+    h2{font-size:clamp(20px,2.4vw,28px); margin:0 0 10px; color:var(--accent)}
+    .grid{display:grid; gap:10px; grid-template-columns: repeat(auto-fill,minmax(230px,1fr));}
+    .tile{background:#1c1c1c; border:1px solid var(--line); border-radius:12px; aspect-ratio:4/3; display:flex; align-items:center; justify-content:center; color:var(--muted)}
+    table{width:100%; border-collapse:collapse; border:1px solid var(--line); border-radius:12px; overflow:hidden; color:var(--ink)}
+    th,td{padding:10px 12px; border-bottom:1px solid var(--line); font-size:14px}
+    th{background:#2a2a2a; color:var(--accent); text-align:left}
+    .codebox{background:#1c1c1c; border:1px solid var(--line); border-radius:12px; padding:14px; font-family:"JetBrains Mono", monospace; font-size:13px; color:var(--mono); overflow:auto}
+    footer{border-top:1px solid var(--line); color:var(--muted); font-size:13px; padding:20px 0 0; margin-top:24px; text-align:center}
+  </style>
+</head>
+<body>
+  <main>
+    <section>
+      <div class="badges">
+        <span class="badge">Accepted in <a href="https://ieeemy.org/tencon2025/" target="_blank" rel="noopener">TENCON 2025</a></span>
+        <span class="badge">FUSERS 2025 • 1st Runner-up • Best Video Presentation</span>
+      </div>
+      <h1>Pestaway: A Pest Management Chatbot with Integrated Speech Capability</h1>
+      <p class="subtitle">A practical assistant for identifying common pests, guiding treatment options, and interacting hands‑free via speech.</p>
+      <div class="authors">
+        <span>Rachel Hannah C. Dela Cruz</span>
+        <span>•</span>
+        <span>Joshua Carlo C. Aguarin</span>
+        <span>•</span>
+        <span>Nickolas Chase P. Ling</span>
+        <span>•</span>
+        <span>Maveric S. Magsaysay</span>
+        <span>•</span>
+        <span>Jastin Brylle C. Villanueva</span>
+        <span>•</span>
+        <a href="https://www.ust.edu.ph/profile/pangaliman-ma-madecheen-s/" target="_blank" rel="noopener">Ma. Madecheen S. Pangaliman</a>
+      </div>
+      <div class="affil">Department of Electronics Engineering, Faculty of Engineering, University of Santo Tomas</div>
+      <div class="cta">
+        <a class="btn primary" href="#" title="Paper coming soon">📄 Paper (coming soon)</a>
+        <a class="btn" href="https://github.com/pestaway-ust/pestaway.git" target="_blank" rel="noopener">💻 Code</a>
+      </div>
+    </section>
+
+    <section id="overview" class="card">
+      <h2>Overview</h2>
+      <p><strong>Pestaway</strong> is a conversational assistant that integrates speech input/output to help users quickly identify household and agricultural pests, learn safe mitigation approaches, and log actions. The pipeline follows a clear progression: detection & knowledge lookup → dialogue management → speech synthesis. The system is designed for modest hardware and field deployment.</p>
+      <div class="grid">
+        <div class="tile">UI screenshot</div>
+        <div class="tile">Voice flow</div>
+        <div class="tile">KB sample</div>
+        <div class="tile">Deployment</div>
+      </div>
+    </section>
+
+    <section id="metrics" class="card">
+      <h2>Example Metrics (placeholder)</h2>
+      <table>
+        <thead>
+          <tr><th>Scenario</th><th>Top‑1 Accuracy ↑</th><th>Median Latency (s) ↓</th><th>Task Success % ↑</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Household pests</td><td>–</td><td>–</td><td>–</td></tr>
+          <tr><td>Garden/Crop pests</td><td>–</td><td>–</td><td>–</td></tr>
+          <tr><td>Sanitation checks</td><td>–</td><td>–</td><td>–</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="bibtex" class="card">
+      <h2>BibTeX</h2>
+      <div class="codebox">@inproceedings{delacruz2025pestaway,
+  title     = {Pestaway: A Pest Management Chatbot with Integrated Speech Capability},
+  author    = {Dela Cruz, Rachel Hannah C. and Aguarin, Joshua Carlo C. and Ling, Nickolas Chase P. and Magsaysay, Maveric S. and Villanueva, Jastin Brylle C. and Pangaliman, Ma. Madecheen S.},
+  booktitle = {IEEE Region 10 Conference (TENCON)},
+  year      = {2025},
+  address   = {Kuala Lumpur, Malaysia},
+  note      = {Accepted. See: https://ieeemy.org/tencon2025/}
+}</div>
+    </section>
+
+    <section id="ack" class="card">
+      <h2>Acknowledgments</h2>
+      <p>Recognized as <strong>1st Runner-up</strong> in the <em>Best Video Presentation</em> category at <strong>FUSERS 2025</strong>.</p>
+    </section>
+
+    <footer>Built as a single-file academic project page with a lighter black and yellow theme.</footer>
+  </main>
+</body>
+</html>
