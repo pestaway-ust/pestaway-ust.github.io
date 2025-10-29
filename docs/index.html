@@ -7,60 +7,208 @@
   <meta name="description" content="Pestaway: A Pest Management Chatbot with Integrated Speech Capability. Accepted in TENCON 2025. 1st Runner-up (Best Video Presentation), FUSERS 2025." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:wght@600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    :root{
-      --bg:#1c1c1c; /* lighter shade of black */
-      --ink:#ffffff;
-      --muted:#d6d6d6;
-      --subtle:#2a2a2a;
-      --line:#3d3d3d;
-      --accent:#ffcc00;
-      --kbd:#333333;
-      --mono:#ffcc00;
-      --shadow:0 4px 14px rgba(0,0,0,.5);
-      --radius:14px;
-      --content-max: 980px;
+    :root {
+      --bg: #ffffff;
+      --panel: #fefaf6;
+      --ink: #2a1810;
+      --muted: #6b5846;
+      --brand: #e89b4d;
+      --brand-2: #f5b55f;
+      --border: #e8ddd0;
+      --chip: #fff4e6;
+      --shadow: 0 2px 12px rgba(232,155,77,.15);
+      --radius-xl: 18px;
+      --radius-lg: 14px;
+      --radius-md: 10px;
+      --maxw: 1120px;
     }
-    *{box-sizing:border-box}
-    body{
-      margin:0; background:var(--bg); color:var(--ink);
-      font-family: Inter, sans-serif;
-      line-height:1.58; letter-spacing:.01em;
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.55;
+      letter-spacing: .02em;
     }
-    a{color:var(--accent); text-decoration:none}
-    a:hover{text-decoration:underline}
-    main{max-width:var(--content-max); padding:34px 20px; margin:auto}
-    h1,h2{font-family:"Source Serif 4", serif}
-    h1{font-size:clamp(28px,4vw,48px); margin:0 0 8px; color:var(--accent)}
-    .badges{display:flex; gap:10px; flex-wrap:wrap; margin:12px 0 6px}
-    .badge{background:var(--kbd); border-radius:999px; padding:6px 10px; font-weight:600; font-size:12px; text-transform:uppercase; letter-spacing:.06em; color:var(--accent)}
-    .subtitle{color:var(--muted); font-size:18px; margin:8px 0 0}
-    .authors{display:flex; flex-wrap:wrap; gap:8px 12px; margin:16px 0 6px}
-    .affil{color:var(--muted); font-size:15px}
-    .cta{display:flex; flex-wrap:wrap; gap:10px; margin:18px 0 0}
-    .btn{display:inline-flex; align-items:center; gap:10px; padding:11px 16px; border-radius:12px; border:1px solid var(--accent); background:transparent; font-weight:700; color:var(--accent)}
-    .btn.primary{background:var(--accent); color:#000;}
-    .card{background:var(--subtle); border:1px solid var(--line); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow)}
-    h2{font-size:clamp(20px,2.4vw,28px); margin:0 0 10px; color:var(--accent)}
-    .grid{display:grid; gap:10px; grid-template-columns: repeat(auto-fill,minmax(230px,1fr));}
-    .tile{background:#1c1c1c; border:1px solid var(--line); border-radius:12px; aspect-ratio:4/3; display:flex; align-items:center; justify-content:center; color:var(--muted)}
-    table{width:100%; border-collapse:collapse; border:1px solid var(--line); border-radius:12px; overflow:hidden; color:var(--ink)}
-    th,td{padding:10px 12px; border-bottom:1px solid var(--line); font-size:14px}
-    th{background:#2a2a2a; color:var(--accent); text-align:left}
-    .codebox{background:#1c1c1c; border:1px solid var(--line); border-radius:12px; padding:14px; font-family:"JetBrains Mono", monospace; font-size:13px; color:var(--mono); overflow:auto}
-    footer{border-top:1px solid var(--line); color:var(--muted); font-size:13px; padding:20px 0 0; margin-top:24px; text-align:center}
+    a { color: var(--brand); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    
+    .wrap { max-width: var(--maxw); margin: 0 auto; padding: 24px; }
+    
+    header {
+      position: sticky; top: 0; z-index: 40; backdrop-filter: blur(10px);
+      background: linear-gradient(to bottom, rgba(255,255,255,.95), rgba(255,255,255,.8) 60%, rgba(255,255,255,0));
+      border-bottom: 1px solid var(--border);
+    }
+    .nav { display:flex; align-items:center; justify-content:space-between; gap:16px; padding: 10px 24px; }
+    .logo { font-weight: 800; letter-spacing:.03em; }
+    .nav a.btn-sm { padding:8px 14px; border-radius: 999px; border:1px solid var(--border); background: var(--panel); color: var(--ink); text-decoration:none; }
+    .nav a.btn-sm:hover { border-color: var(--brand); background: var(--chip); }
+    
+    .hero { padding: 56px 0 28px; }
+    .pretitle { display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border-radius: 999px; background: var(--chip); color: var(--muted); font-weight:600; font-size: 12px; letter-spacing:.08em; text-transform:uppercase; margin-bottom: 8px; }
+    .pretitle + .pretitle { margin-left: 8px; }
+    h1 { margin: 14px 0 12px; font-size: clamp(28px, 4.2vw, 56px); line-height:1.05; letter-spacing:.01em; }
+    .subtitle { color: var(--muted); font-size: clamp(16px, 2vw, 20px); margin-top: 12px; }
+    .authors { margin: 18px 0 8px; display:flex; flex-wrap:wrap; gap:8px 14px; }
+    .authors a, .authors span { color: var(--ink); }
+    .affil { color: var(--muted); font-size: 15px; }
+    .cta-row { margin: 20px 0 0; display:flex; flex-wrap:wrap; gap:12px; }
+    .btn { display:inline-flex; align-items:center; gap:10px; font-weight:700; padding: 12px 18px; border-radius: 12px; border: 1px solid var(--border); text-decoration:none; transition: transform .05s ease; box-shadow: var(--shadow); }
+    .btn:hover { transform: translateY(-1px); text-decoration: none; }
+    .btn.primary { background: linear-gradient(135deg, var(--brand), var(--brand-2)); color:#ffffff; border-color: transparent; }
+    .btn.ghost { background: var(--panel); color: var(--ink); border-color: var(--border); }
+    .btn.ghost:hover { background: var(--chip); border-color: var(--brand); }
+    .btn.disabled { opacity:.55; cursor:not-allowed; pointer-events:none; }
+    
+    section.card { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 32px; margin: 26px 0; box-shadow: var(--shadow); }
+    section.card h2 { margin: 0 0 16px; font-size: clamp(22px, 2.8vw, 32px); color: #d97706; font-weight: 700; }
+    section.card h3 { margin: 20px 0 8px; font-size: clamp(18px, 2vw, 22px); color: var(--ink); }
+    section.card p { margin: 12px 0; color: var(--muted); line-height: 1.7; }
+    
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: var(--radius-lg);
+      margin: 20px 0;
+      border: 1px solid var(--border);
+    }
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    
+    img { max-width: 100%; height: auto; border-radius: var(--radius-lg); margin: 20px 0; border: 1px solid var(--border); }
+    
+    /* Compact styling for UI section */
+    .ui-section img { margin: 10px 0 24px 0; }
+    .ui-section h3 { margin: 16px 0 6px; }
+    .ui-section p { margin: 6px 0 8px; }
+    
+    .codebox { 
+      background: #faf7f4; 
+      border-radius: var(--radius-md); 
+      border:1px solid var(--border); 
+      padding: 20px; 
+      font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; 
+      font-size: 13px; 
+      color: #3a2515; 
+      overflow: auto;
+      white-space: pre;
+      line-height: 1.6;
+    }
+    
+    .note {
+      background: rgba(232, 155, 77, 0.08);
+      border-left: 3px solid var(--brand);
+      padding: 12px 16px;
+      margin: 16px 0;
+      border-radius: var(--radius-md);
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .highlight-box {
+      background: rgba(232, 155, 77, 0.1);
+      border: 1px solid var(--brand);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      margin: 16px 0;
+    }
+
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin: 20px 0;
+    }
+
+    .metric-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      text-align: center;
+    }
+
+    .metric-card .metric-label {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .metric-card .metric-value {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--brand);
+    }
+    
+    footer { color: var(--muted); font-size: 13px; padding: 40px 0; text-align:center; border-top: 1px solid var(--border); margin-top: 60px; }
+    
+    @media (max-width: 768px) {
+      .nav { flex-direction: column; align-items: flex-start; }
+      .hero { padding: 32px 0 20px; }
+      section.card { padding: 24px; }
+      .metric-grid { grid-template-columns: 1fr; }
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 14px;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+
+    th {
+      background: var(--chip);
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    tr:hover {
+      background: rgba(232, 155, 77, 0.05);
+    }
   </style>
 </head>
 <body>
-  <main>
-    <section>
-      <div class="badges">
-        <span class="badge">Accepted in <a href="https://ieeemy.org/tencon2025/" target="_blank" rel="noopener">TENCON 2025</a></span>
-        <span class="badge">FUSERS 2025 • 1st Runner-up • Best Video Presentation</span>
+  <header>
+    <div class="nav wrap">
+      <div class="logo">🌾 Pestaway</div>
+      <nav style="display:flex; gap:10px; flex-wrap: wrap;">
+        <a class="btn-sm" href="#abstract">Abstract</a>
+        <a class="btn-sm" href="#overview">Overview</a>
+        <a class="btn-sm" href="#methodology">Methodology</a>
+        <a class="btn-sm" href="#results">Results</a>
+        <a class="btn-sm" href="#bibtex">BibTeX</a>
+      </nav>
+    </div>
+  </header>
+  
+  <main class="wrap">
+    <!-- Hero -->
+    <div class="hero">
+      <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px;">
+        <span class="pretitle">✅ Accepted in <a href="https://ieeemy.org/tencon2025/" target="_blank" rel="noopener">IEEE TENCON 2025</a></span>
+        <span class="pretitle">🏆 FUSERS 2025 • 1st Runner-up • Best Video Presentation</span>
       </div>
       <h1>Pestaway: A Pest Management Chatbot with Integrated Speech Capability</h1>
-      <p class="subtitle">A practical assistant for identifying common pests, guiding treatment options, and interacting hands‑free via speech.</p>
+      <p class="subtitle">A bilingual conversational assistant that integrates speech input/output to help Filipino farmers identify pests, learn safe mitigation approaches, and access pest management information in English and Tagalog.</p>
       <div class="authors">
         <span>Rachel Hannah C. Dela Cruz</span>
         <span>•</span>
@@ -72,58 +220,280 @@
         <span>•</span>
         <span>Jastin Brylle C. Villanueva</span>
         <span>•</span>
-        <a href="https://www.ust.edu.ph/profile/pangaliman-ma-madecheen-s/" target="_blank" rel="noopener">Ma. Madecheen S. Pangaliman</a>
+        <a href="https://www.ust.edu.ph/profile/pangaliman-ma-madecheen-s/" target="_blank" rel="noopener" style="color: var(--ink); text-decoration: none;">Ma. Madecheen S. Pangaliman</a>
       </div>
-      <div class="affil">Department of Electronics Engineering, Faculty of Engineering, University of Santo Tomas</div>
-      <div class="cta">
-        <a class="btn primary" href="#" title="Paper coming soon">📄 Paper (coming soon)</a>
-        <a class="btn" href="https://github.com/pestaway-ust/pestaway.git" target="_blank" rel="noopener">💻 Code</a>
+      <div class="affil">Department of Electronics Engineering, Faculty of Engineering, University of Santo Tomas, Manila, Philippines</div>
+      <div class="cta-row">
+        <a class="btn primary disabled" href="#" title="Paper coming soon" aria-disabled="true" role="button">📄 Paper (Coming Soon)</a>
+        <a class="btn ghost" href="https://github.com/pestaway-ust/pestaway.git" target="_blank" rel="noopener">💻 Code</a>
+        <a class="btn ghost" href="#bibtex">📋 BibTeX</a>
       </div>
+    </div>
+
+    <!-- Abstract -->
+    <section id="abstract" class="card">
+      <h2>📄 Abstract</h2>
+      <p>
+        Farmers faced challenges with pest control, leading to lower crop yields and financial losses due to limited access 
+        to accurate information. To address this, the study introduced <strong>Pestaway</strong>, a chatbot for Filipino farmers that uses 
+        Large Language Models (LLMs) to provide interactive and speech-enabled solutions. An 80,000-item dataset divided between 
+        English and Tagalog was generated using GPT-4 and credible agricultural sources.
+      </p>
+      <p>
+        The models were fine-tuned using different training approaches: Supervised Fine-Tuning (SFT), SFT with Direct 
+        Preference Optimization (DPO), and Odds Ratio Preference Optimization (ORPO). Among them, the ORPO Trainer produced the 
+        best results, achieving a <strong>METEOR score of 0.3271</strong>, a <strong>BERTScore of 0.7316</strong>, and an 
+        <strong>average perplexity of 1.5185</strong>.
+      </p>
+      <p>
+        Additionally, word error rate (WER) and character error rate (CER) were used to evaluate the speech recognition 
+        capabilities of the chatbot. The WER ranged from 0% to 28.57%, while the CER ranged from 0% to 3.43%, indicating 
+        accurate transcriptions with minimal character-level errors. A user satisfaction survey involving farmers, agricultural 
+        students, and individuals interested in agricultural practices yielded an average rating of more than <strong>4.1 out of 5</strong>, 
+        with <strong>97.73% giving positive feedback</strong> and <strong>100% recommending the chatbot for use</strong>.
+      </p>
     </section>
 
+    <!-- System Overview -->
     <section id="overview" class="card">
-      <h2>Overview</h2>
-      <p><strong>Pestaway</strong> is a conversational assistant that integrates speech input/output to help users quickly identify household and agricultural pests, learn safe mitigation approaches, and log actions. The pipeline follows a clear progression: detection & knowledge lookup → dialogue management → speech synthesis. The system is designed for modest hardware and field deployment.</p>
-      <div class="grid">
-        <div class="tile">UI screenshot</div>
-        <div class="tile">Voice flow</div>
-        <div class="tile">KB sample</div>
-        <div class="tile">Deployment</div>
+      <h2>🔍 System Overview</h2>
+      <p>
+        Pestaway is a conversational assistant that integrates speech input/output to help users quickly identify household 
+        and agricultural pests, learn safe mitigation approaches, and log actions. The pipeline follows a clear progression: 
+        <strong>detection & knowledge lookup → dialogue management → speech synthesis</strong>. The system is designed for modest 
+        hardware and field deployment.
+      </p>
+      
+      <div class="highlight-box">
+        <h3 style="margin-top: 0;">🎯 Key Features</h3>
+        <ul style="margin: 8px 0; padding-left: 20px; color: var(--muted);">
+          <li>Bilingual support (English and Tagalog)</li>
+          <li>Speech-to-Text using Whisper</li>
+          <li>Text-to-Speech using Google TTS (gTTS)</li>
+          <li>Fine-tuned SeaLLM-v3-1.5B-Chat model</li>
+          <li>GUI developed using Gradio</li>
+          <li>80,000-item training dataset</li>
+        </ul>
       </div>
+
+      <h3>🗣️ Speech Integration</h3>
+      <p>
+        The chatbot uses <strong>Whisper</strong>, a speech recognition model designed to perform multilingual speech recognition, 
+        translation, and language identification; and <strong>Google Text-to-Speech (gTTS)</strong> to allow users to transform 
+        written text into audio. This enables hands-free operation, particularly useful during fieldwork when typing is inconvenient.
+      </p>
     </section>
 
-    <section id="metrics" class="card">
-      <h2>Example Metrics (placeholder)</h2>
-      <table>
-        <thead>
-          <tr><th>Scenario</th><th>Top‑1 Accuracy ↑</th><th>Median Latency (s) ↓</th><th>Task Success % ↑</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Household pests</td><td>–</td><td>–</td><td>–</td></tr>
-          <tr><td>Garden/Crop pests</td><td>–</td><td>–</td><td>–</td></tr>
-          <tr><td>Sanitation checks</td><td>–</td><td>–</td><td>–</td></tr>
-        </tbody>
-      </table>
+    <!-- Methodology -->
+    <section id="methodology" class="card">
+      <h2>⚙️ Methodology</h2>
+      
+      <h3>📊 Dataset Generation</h3>
+      <p>
+        Three datasets were generated for training the chatbot, each serving a specific purpose in the fine-tuning process:
+      </p>
+      <ul style="color: var(--muted); line-height: 1.8;">
+        <li><strong>Raw Dataset:</strong> Collected from government websites, journals, and credible sources for the SFT dataset foundation</li>
+        <li><strong>SFT Dataset:</strong> 80,000 question-and-answer pairs (40,000 English, 40,000 Tagalog) generated using GPT-4</li>
+        <li><strong>DPO Dataset:</strong> 80,000 samples with prompts, chosen, and rejected responses to align with human preferences</li>
+        <li><strong>Ground Truth Dataset:</strong> 500 items verified by agricultural experts from the Institute of Weed Science, Entomology, and Plant Pathology (IWEP)</li>
+      </ul>
+
+      <h3>📈 Data Quality Metrics</h3>
+      <p>Three key metrics ensured dataset quality:</p>
+      <div class="metric-grid">
+        <div class="metric-card">
+          <div class="metric-label">Cosine Similarity</div>
+          <div class="metric-value">0.72</div>
+          <small style="color: var(--muted);">English</small>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">Lexical Diversity</div>
+          <div class="metric-value">0.96</div>
+          <small style="color: var(--muted);">Answers (EN)</small>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">Sentence Complexity</div>
+          <div class="metric-value">17.67</div>
+          <small style="color: var(--muted);">Answers (EN)</small>
+        </div>
+      </div>
+
+      <h3>🧠 Model Training</h3>
+      <p>
+        The researchers used <strong>SeaLLM-v3-1.5B-Chat</strong>, a multilingual model that supports various languages including 
+        English and Tagalog. The model balances performance and efficiency while using less VRAM and training time. Three training 
+        approaches were evaluated:
+      </p>
+      <ul style="color: var(--muted); line-height: 1.8;">
+        <li><strong>Supervised Fine-Tuning (SFT):</strong> Develops a pre-trained model using labeled data</li>
+        <li><strong>SFT + Direct Preference Optimization (DPO):</strong> Refines model to align outputs with human preferences</li>
+        <li><strong>Odds Ratio Preference Optimization (ORPO):</strong> Aligns language models with human preferences without requiring a reference model</li>
+      </ul>
     </section>
 
+    <!-- Results -->
+    <section id="results" class="card">
+      <h2>📊 Results & Performance</h2>
+      
+      <h3>🏆 Model Performance Comparison</h3>
+      <p>
+        The ORPO Trainer achieved the best performance across all metrics, demonstrating superior fluency, contextual 
+        relevance, and alignment with human-written text:
+      </p>
+      
+      <div style="overflow-x: auto; margin: 20px 0;">
+        <table>
+          <thead>
+            <tr>
+              <th>Trainer</th>
+              <th>METEOR ↑</th>
+              <th>BERTScore ↑</th>
+              <th>Avg. Perplexity ↓</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>SFT</strong></td>
+              <td>0.2909</td>
+              <td>0.6250</td>
+              <td>2.6040</td>
+            </tr>
+            <tr>
+              <td><strong>SFT + DPO</strong></td>
+              <td>0.2896</td>
+              <td>0.6596</td>
+              <td>2.0501</td>
+            </tr>
+            <tr style="background: rgba(232, 155, 77, 0.1);">
+              <td><strong>ORPO (Best)</strong></td>
+              <td><strong>0.3271</strong></td>
+              <td><strong>0.7316</strong></td>
+              <td><strong>1.5185</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note">
+        <strong>💡 Key Finding:</strong> The ORPO trainer outperformed others due to its direct alignment with user preferences 
+        without requiring a reference model, making it more adaptable to conversational tasks.
+      </div>
+
+      <h3>🎤 Speech Recognition Accuracy</h3>
+      <p>
+        The chatbot demonstrated reliable speech transcription capabilities with minimal errors:
+      </p>
+      
+      <div style="overflow-x: auto; margin: 20px 0;">
+        <table>
+          <thead>
+            <tr>
+              <th>Reference</th>
+              <th>Transcribed Text</th>
+              <th>WER</th>
+              <th>CER</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>How do I control rice stem borers</td>
+              <td>How do I control rice stem borers</td>
+              <td><strong>0.00%</strong></td>
+              <td><strong>0.00%</strong></td>
+            </tr>
+            <tr>
+              <td>Do ducks help manage rice pests</td>
+              <td>Do ducks help manage rice pts</td>
+              <td>14.29%</td>
+              <td>1.88%</td>
+            </tr>
+            <tr>
+              <td>Bakit mahalaga ang field sanitation sa pest management</td>
+              <td>Bakit mahalaga ang sanitation sa pest management</td>
+              <td>15.38%</td>
+              <td>1.95%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>👥 User Satisfaction Survey</h3>
+      <div class="highlight-box">
+        <div class="metric-grid">
+          <div class="metric-card">
+            <div class="metric-label">Average Rating</div>
+            <div class="metric-value">4.1+</div>
+            <small style="color: var(--muted);">out of 5.0</small>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">Positive Feedback</div>
+            <div class="metric-value">97.73%</div>
+            <small style="color: var(--muted);">of respondents</small>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">Recommendation Rate</div>
+            <div class="metric-value">100%</div>
+            <small style="color: var(--muted);">would recommend</small>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        Participants highlighted the <strong>usefulness, precision, and bilingual capability</strong> of the chatbot. The survey 
+        involved farmers, agricultural students, and individuals interested in agricultural practices. Farmers expressed 
+        satisfaction with the ease of use, bilingual support via text and speech input, and accurate pest management advice 
+        tailored to real-time practices.
+      </p>
+
+      <p>
+        <strong>Suggested Improvements:</strong> Faster responses, visual aids, and a mobile version.
+      </p>
+    </section>
+
+    <!-- BibTeX -->
     <section id="bibtex" class="card">
-      <h2>BibTeX</h2>
+      <h2>📝 BibTeX</h2>
+      <p>If you find Pestaway useful in your research, please consider citing:</p>
       <div class="codebox">@inproceedings{delacruz2025pestaway,
-  title     = {Pestaway: A Pest Management Chatbot with Integrated Speech Capability},
-  author    = {Dela Cruz, Rachel Hannah C. and Aguarin, Joshua Carlo C. and Ling, Nickolas Chase P. and Magsaysay, Maveric S. and Villanueva, Jastin Brylle C. and Pangaliman, Ma. Madecheen S.},
-  booktitle = {IEEE Region 10 Conference (TENCON)},
+  title     = {Pestaway: A Pest Management Chatbot with 
+               Integrated Speech Capability},
+  author    = {Dela Cruz, Rachel Hannah C. and 
+               Aguarin, Joshua Carlo C. and 
+               Ling, Nickolas Chase P. and 
+               Magsaysay, Maveric S. and 
+               Villanueva, Jastin Brylle C. and 
+               Pangaliman, Ma. Madecheen S.},
+  booktitle = {2025 IEEE Region 10 Conference (TENCON)},
   year      = {2025},
   address   = {Kuala Lumpur, Malaysia},
-  note      = {Accepted. See: https://ieeemy.org/tencon2025/}
+  note      = {Accepted},
+  url       = {https://ieeemy.org/tencon2025/}
 }</div>
     </section>
 
-    <section id="ack" class="card">
-      <h2>Acknowledgments</h2>
-      <p>Recognized as <strong>1st Runner-up</strong> in the <em>Best Video Presentation</em> category at <strong>FUSERS 2025</strong>.</p>
+    <!-- Acknowledgments -->
+    <section class="card">
+      <h2>🙏 Acknowledgments</h2>
+      <p>
+        Recognized as <strong>1st Runner-up</strong> in the <em>Best Video Presentation</em> category at <strong>FUSERS 2025</strong>.
+      </p>
+      <p>
+        The researchers express their gratitude to the UST Faculty of Engineering, the Electronics Engineering Department, 
+        and their thesis adviser for guidance and support. The researchers also acknowledge the local farmers in Bulacan 
+        and the Bulacan Agricultural State College for their assistance in the improvement of the chatbot.
+      </p>
     </section>
 
-    <footer>Built as a single-file academic project page with a lighter black and yellow theme.</footer>
+    <footer>
+      © <span id="yr"></span> Pestaway Team • University of Santo Tomas, Manila, Philippines
+      <br>
+      <span style="font-size: 11px; opacity: .7;">Accepted at IEEE TENCON 2025 • Kuala Lumpur, Malaysia</span>
+    </footer>
   </main>
+  
+  <script>
+    document.getElementById('yr').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
