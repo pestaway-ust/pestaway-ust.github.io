@@ -163,12 +163,3 @@ Evaluation metrics include:
   url       = {https://ieeexplore.ieee.org/document/11375077}
 }
 ```
-
----
-
-## Acknowledgment
-
-Department of Electronics Engineering  
-Faculty of Engineering  
-University of Santo Tomas  
-Bulacan Agricultural State College and collaborating farming communities
