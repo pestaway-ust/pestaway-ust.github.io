@@ -37,9 +37,9 @@
     }
     a { color: var(--brand); text-decoration: none; }
     a:hover { text-decoration: underline; }
-    
+
     .wrap { max-width: var(--maxw); margin: 0 auto; padding: 24px; }
-    
+
     header {
       position: sticky; top: 0; z-index: 40; backdrop-filter: blur(10px);
       background: linear-gradient(to bottom, rgba(26,31,22,.95), rgba(26,31,22,.8) 60%, rgba(26,31,22,0));
@@ -49,7 +49,7 @@
     .logo { font-weight: 800; letter-spacing:.03em; }
     .nav a.btn-sm { padding:8px 14px; border-radius: 999px; border:1px solid var(--border); background: var(--panel); color: var(--ink); text-decoration:none; }
     .nav a.btn-sm:hover { border-color: var(--brand); background: var(--chip); }
-    
+
     .hero { padding: 56px 0 28px; }
     .pretitle { display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border-radius: 999px; background: var(--chip); color: var(--muted); font-weight:600; font-size: 12px; letter-spacing:.08em; text-transform:uppercase; }
     h1 { margin: 14px 0 12px; font-size: clamp(28px, 4.2vw, 56px); line-height:1.05; letter-spacing:.01em; }
@@ -66,12 +66,12 @@
     .btn.ghost { background: var(--panel); color: var(--ink); border-color: var(--border); }
     .btn.ghost:hover { background: var(--chip); border-color: var(--brand); }
     .btn.disabled { opacity:.55; cursor:not-allowed; pointer-events:none; }
-    
+
     section.card { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 32px; margin: 26px 0; box-shadow: var(--shadow); }
     section.card h2 { margin: 0 0 16px; font-size: clamp(22px, 2.8vw, 32px); color: var(--brand-2); font-weight: 700; }
     section.card h3 { margin: 20px 0 8px; font-size: clamp(18px, 2vw, 22px); color: var(--ink); }
     section.card p { margin: 12px 0; color: var(--muted); line-height: 1.7; text-align: justify; }
-    
+
     .video-container {
       position: relative;
       padding-bottom: 56.25%;
@@ -89,27 +89,27 @@
       height: 100%;
       border: 0;
     }
-    
+
     img { max-width: 100%; height: auto; border-radius: var(--radius-lg); margin: 20px 0; border: 1px solid var(--border); }
-    
+
     /* Compact styling for UI section */
     .ui-section img { margin: 10px 0 24px 0; }
     .ui-section h3 { margin: 16px 0 6px; }
     .ui-section p { margin: 6px 0 8px; }
-    
-    .codebox { 
-      background: #1a1f16; 
-      border-radius: var(--radius-md); 
-      border:1px solid var(--border); 
-      padding: 20px; 
-      font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; 
-      font-size: 13px; 
-      color: var(--brand-2); 
+
+    .codebox {
+      background: #1a1f16;
+      border-radius: var(--radius-md);
+      border:1px solid var(--border);
+      padding: 20px;
+      font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 13px;
+      color: var(--brand-2);
       overflow: auto;
       white-space: pre;
       line-height: 1.6;
     }
-    
+
     .note {
       background: rgba(124, 179, 66, 0.1);
       border-left: 3px solid var(--brand);
@@ -119,7 +119,7 @@
       font-size: 14px;
       color: var(--muted);
     }
-    
+
     table {
       width: 100%;
       border-collapse: collapse;
@@ -127,25 +127,25 @@
       font-size: 14px;
       background: #1a1f16;
     }
-    
+
     th, td {
       padding: 12px;
       text-align: center;
       border: 1px solid var(--border);
     }
-    
+
     th {
       background: var(--chip);
       color: var(--brand-2);
       font-weight: 600;
     }
-    
+
     tbody tr:hover {
       background: rgba(124, 179, 66, 0.05);
     }
-    
+
     footer { color: var(--muted); font-size: 13px; padding: 40px 0; text-align:center; border-top: 1px solid var(--border); margin-top: 60px; }
-    
+
     @media (max-width: 768px) {
       .nav { flex-direction: column; align-items: flex-start; }
       .hero { padding: 32px 0 20px; }
@@ -166,7 +166,7 @@
       </nav>
     </div>
   </header>
-  
+
   <main class="wrap">
     <!-- Hero -->
     <div class="hero">
@@ -191,24 +191,32 @@
       </div>
       <div class="affil">Department of Electronics Engineering, Faculty of Engineering, University of Santo Tomas</div>
       <div class="cta-row">
-        <a class="btn primary disabled" href="https://doi.org/10.1109/TENCON66050.2025.11375077" title="Paper" aria-disabled="true" role="button">📄 Paper </a>
+        <!-- UPDATED: Paper button now enabled and points to IEEE Xplore -->
+        <a class="btn primary"
+           href="https://ieeexplore.ieee.org/document/11375077"
+           target="_blank"
+           rel="noopener">
+           📄 Paper
+        </a>
         <a class="btn ghost disabled" href="#" title="Code coming soon" aria-disabled="true" role="button">💻 Code (Coming Soon)</a>
         <a class="btn ghost" href="#bibtex">📋 BibTeX</a>
       </div>
     </div>
+
     <!-- Abstract -->
     <section id="abstract" class="card">
       <h2>📄 Abstract</h2>
       <p>
-        We present Pestaway, a bilingual conversational assistant for Filipino farmers that uses Large Language Models to provide 
-        interactive and speech-enabled pest management solutions. Addressing challenges farmers faced with limited access to accurate 
-        pest control information, Pestaway integrates Whisper speech-to-text and Google Text-to-Speech technologies with a fine-tuned 
-        SeaLLM model, enabling natural voice-based and text-based interaction in both English and Tagalog. The system supports both 
-        voice and text modalities for flexible interaction during fieldwork. We conclude with performance benchmarks, user satisfaction 
-        analysis from farmers and agricultural students, and recommendations for future enhancements. The source code can be accessed via 
+        We present Pestaway, a bilingual conversational assistant for Filipino farmers that uses Large Language Models to provide
+        interactive and speech-enabled pest management solutions. Addressing challenges farmers faced with limited access to accurate
+        pest control information, Pestaway integrates Whisper speech-to-text and Google Text-to-Speech technologies with a fine-tuned
+        SeaLLM model, enabling natural voice-based and text-based interaction in both English and Tagalog. The system supports both
+        voice and text modalities for flexible interaction during fieldwork. We conclude with performance benchmarks, user satisfaction
+        analysis from farmers and agricultural students, and recommendations for future enhancements. The source code can be accessed via
         <a href="https://github.com/pestaway-ust/pestaway" target="_blank" rel="noopener">https://github.com/pestaway-ust/pestaway</a>.
       </p>
     </section>
+
     <!-- Teaser Video -->
     <section id="teaser" class="card">
       <h2>🎥 Teaser Video</h2>
@@ -216,38 +224,41 @@
         <iframe src="https://www.youtube.com/embed/VyHBs1u-9Cg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
     </section>
+
     <!-- System Overview -->
     <section id="overview" class="card">
       <h2>🗺️ System Overview</h2>
       <p>
-        Pestaway is a conversational assistant that integrates speech input/output to help users quickly identify household 
-        and agricultural pests, learn safe mitigation approaches, and log actions. The system employs a three-component pipeline: 
-        users interact through <strong>Whisper STT</strong> for speech recognition, the fine-tuned <strong>SeaLLM-v3-1.5B-Chat model</strong> 
-        processes the request and generates pest management guidance, and <strong>Google TTS (gTTS)</strong> delivers the response through 
+        Pestaway is a conversational assistant that integrates speech input/output to help users quickly identify household
+        and agricultural pests, learn safe mitigation approaches, and log actions. The system employs a three-component pipeline:
+        users interact through <strong>Whisper STT</strong> for speech recognition, the fine-tuned <strong>SeaLLM-v3-1.5B-Chat model</strong>
+        processes the request and generates pest management guidance, and <strong>Google TTS (gTTS)</strong> delivers the response through
         natural speech output. The system is designed for modest hardware and field deployment.
       </p>
       <div style="text-align: center; background: white; padding: 20px; border-radius: var(--radius-lg); margin: 20px 0;">
         <img src="architecture.png" alt="Pestaway System Architecture" style="max-width: 100%; border: none;">
       </div>
     </section>
+
     <!-- User Interface -->
     <section class="card ui-section">
       <h2>💻 User Interface</h2>
       <p>Pestaway offers an interactive platform with options to converse via text or speech input, providing flexible pest management assistance for Filipino farmers.</p>
-      
+
       <div style="text-align: center;">
         <img src="pestaway-gui.png" alt="Pestaway Interface Screenshot">
       </div>
     </section>
+
     <!-- Results -->
     <section id="results" class="card">
       <h2>📊 Results</h2>
       <p>
-        The evaluation compared different training methods: Supervised Fine-Tuning (SFT), SFT with Direct Preference 
-        Optimization (DPO), and Odds Ratio Preference Optimization (ORPO). Metrics include METEOR (translation quality), 
+        The evaluation compared different training methods: Supervised Fine-Tuning (SFT), SFT with Direct Preference
+        Optimization (DPO), and Odds Ratio Preference Optimization (ORPO). Metrics include METEOR (translation quality),
         BERTScore (semantic similarity), and Average Perplexity (model confidence).
       </p>
-      
+
       <h3>📈 Performance Metrics Comparison</h3>
       <div style="overflow-x: auto; margin: 20px 0;">
         <table style="width: 100%; min-width: 400px;">
@@ -282,18 +293,19 @@
         </table>
       </div>
     </section>
+
     <!-- BibTeX -->
     <section id="bibtex" class="card">
       <h2>📝 BibTeX</h2>
       <p>If you find Pestaway useful in your research, please consider citing:</p>
       <div class="codebox">@inproceedings{delacruz2025pestaway,
-  title     = {Pestaway: A Pest Management Chatbot with 
+  title     = {Pestaway: A Pest Management Chatbot with
                Integrated Speech Capability},
-  author    = {Dela Cruz, Rachel Hannah C. and 
-               Aguarin, Joshua Carlo C. and 
-               Ling, Nickolas Chase P. and 
-               Magsaysay, Maveric S. and 
-               Villanueva, Jastin Brylle C. and 
+  author    = {Dela Cruz, Rachel Hannah C. and
+               Aguarin, Joshua Carlo C. and
+               Ling, Nickolas Chase P. and
+               Magsaysay, Maveric S. and
+               Villanueva, Jastin Brylle C. and
                Pangaliman, Ma. Madecheen S.},
   booktitle = {2025 IEEE Region 10 Conference (TENCON)},
   year      = {2025},
@@ -302,23 +314,25 @@
   note      = {Accepted}
 }</div>
     </section>
+
     <!-- Acknowledgments -->
     <section class="card">
       <h2>🙏 Acknowledgment</h2>
       <p>
-        This research was conducted at the Department of Electronics Engineering, Faculty of Engineering, 
-        University of Santo Tomas. We thank our institution for providing the resources and support that made 
-        this work possible. The researchers also acknowledge the local farmers in Bulacan and the Bulacan 
+        This research was conducted at the Department of Electronics Engineering, Faculty of Engineering,
+        University of Santo Tomas. We thank our institution for providing the resources and support that made
+        this work possible. The researchers also acknowledge the local farmers in Bulacan and the Bulacan
         Agricultural State College for their assistance in the improvement of the chatbot.
       </p>
     </section>
+
     <footer>
       © <span id="yr"></span> Pestaway Team • University of Santo Tomas, Manila, Philippines
       <br>
       <span style="font-size: 11px; opacity: .7;">Accepted at IEEE TENCON 2025 • October 27-30, 2025 • Kota Kinabalu, Sabah, Malaysia</span>
     </footer>
   </main>
-  
+
   <script>
     document.getElementById('yr').textContent = new Date().getFullYear();
   </script>
