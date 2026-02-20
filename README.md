@@ -37,9 +37,8 @@ The system is designed for accessibility, modest hardware deployment, and practi
 ---
 
 ## System Architecture
-
-<p align="center" style="background-color:white; padding:20px;">
-  <img src="docs/architecture.png" width="900">
+<p align="center">
+  <img src="docs/architecture.png" width="900" style="background-color:white; padding:15px; border-radius:8px;">
 </p>
 
 
