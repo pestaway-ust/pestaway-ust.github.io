@@ -1,197 +1,142 @@
 # 🌾 Pestaway  
-### A Pest Management Chatbot with Integrated Speech Capability  
-📍 IEEE TENCON 2025  
-🏆 FUSERS 2025 • 1st Runner-up • Best Video Presentation  
+### *Pest Management Chatbot with Integrated Speech Capability*
+
+[![IEEE TENCON 2025 Accepted](https://img.shields.io/badge/🎓-TENCON%202025%20Accepted-blue)](https://ieeexplore.ieee.org/document/11375077)
+[![FUSERS 2025 • Runner-up](https://img.shields.io/badge/🏆-FUSERS%202025%201st%20Runner%20Up-brightgreen)]()
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)]()
+
+<p align="center">
+  <img src="docs/pestaway-gui.png" alt="Pestaway UI Screenshot" width="60%">
+</p>
 
 ---
 
-## 📖 Overview
+## 📌 About
 
-**Pestaway** is a bilingual conversational assistant designed to support Filipino farmers in pest identification and mitigation.
+**Pestaway** is an interactive, bilingual chatbot (English & Tagalog) that helps Filipino farmers:
 
-The system integrates:
+- 🐛 identify agricultural pests
+- 📘 learn safe mitigation strategies
+- 🎙 interact with natural speech input/output
 
-- 🎙 Whisper (Speech-to-Text)
-- 🧠 Fine-tuned SeaLLM (SFT / DPO / ORPO)
-- 🔊 Google Text-to-Speech
-- 🌐 English–Tagalog bilingual support
-
-It enables natural voice or text interaction in field environments and supports deployment on modest hardware.
-
-📄 **Paper:**  
-https://ieeexplore.ieee.org/document/11375077
+It combines state-of-the-art components — Whisper STT, SeaLLM fine-tuning, and Google TTS — for a seamless field experience. :contentReference[oaicite:0]{index=0}
 
 ---
 
-## 🗂 Repository Structure
+## 🧠 Features
+
+- 🗣️ Speech-enabled conversational pest support  
+- 🔡 Text and voice interaction (English & Tagalog)  
+- 📊 Evaluation metrics: METEOR, BERTScore, perplexity, Coh-Metrix  
+- 🛠️ Modular training pipeline for SFT, DPO, ORPO
+
+---
+
+## 📂 Repository Layout
 
 ```
-.
+📦 pestaway-ust.github.io
 ├── README.md
-├── docs/
-│   ├── index.html
-│   ├── architecture.png
-│   ├── pestaway-gui.png
-│   └── codes/
-│       ├── sft_training.py
-│       ├── orpo.py
-│       ├── dpotrainer3.py
-│       ├── evaluate_model.py
-│       ├── data_metrics.py
-│       ├── coh_metrixdpo.py
-│       ├── coh_metrixsft.py
-│       ├── coh_metrixqa.py
-│       ├── WEReval.py
-│       ├── cleaner.py
-│       ├── count.py
-│       ├── testing_gradio.py
-│       └── requirements.txt
+└── docs/
+    ├── index.html
+    ├── architecture.png
+    ├── pestaway-gui.png
+    └── codes/
+        ├── sft_training.py
+        ├── orpo.py
+        ├── dpotrainer3.py
+        ├── evaluate_model.py
+        ├── data_metrics.py
+        ├── coh_metrix*.py
+        ├── WEReval.py
+        ├── cleaner.py
+        ├── count.py
+        ├── testing_gradio.py
+        └── requirements.txt
 ```
-
-The project website is served via GitHub Pages from the `/docs` directory.
 
 ---
 
-## 🚀 Reproducibility
+## 🚀 Quick Start
 
-### 1️⃣ Environment Setup
+### 🐍 Setup
 
-Create a virtual environment:
-
-**macOS/Linux**
-```bash
-python -m venv venv
-source venv/bin/activate
-```
-
-**Windows**
-```powershell
-python -m venv venv
-venv\Scripts\activate
-```
-
-Install dependencies:
+Create a Python environment and install dependencies:
 
 ```bash
+python -m venv venv
+source venv/bin/activate            # macOS / Linux
+venv\Scripts\activate               # Windows PowerShell
+
 pip install -r docs/codes/requirements.txt
 ```
 
 ---
 
-### 2️⃣ Environment Variables
+## 🔐 Environment Variables
 
-For security reasons, access tokens must NOT be hardcoded.
+⚠️ Tokens must NOT be hard-coded.
 
-Set your Hugging Face token:
-
-**macOS/Linux**
+**macOS / Linux**
 ```bash
-export HF_TOKEN="your_token_here"
+export HF_TOKEN="your_huggingface_token"
 ```
 
 **Windows PowerShell**
 ```powershell
-setx HF_TOKEN "your_token_here"
+setx HF_TOKEN "your_huggingface_token"
 ```
-
-Restart your terminal after setting environment variables.
 
 ---
 
-### 3️⃣ Dataset Configuration
+## 🧪 Training & Evaluation
 
-Set dataset paths:
+Train with different strategies:
 
-**macOS/Linux**
-```bash
-export TRAIN_PARQUET="./data/train.parquet"
-export TEST_PARQUET="./data/test.parquet"
-```
-
-**Windows PowerShell**
-```powershell
-setx TRAIN_PARQUET ".\data\train.parquet"
-setx TEST_PARQUET ".\data\test.parquet"
-```
-
-Datasets are not included in this repository.
-
----
-
-### 4️⃣ Training
-
-Run Supervised Fine-Tuning (SFT):
-
+- 🟦 Supervised Fine-Tuning (SFT)
 ```bash
 python docs/codes/sft_training.py
 ```
 
-Run ORPO:
-
+- 🟨 ORPO
 ```bash
 python docs/codes/orpo.py
 ```
 
-Run DPO:
-
+- 🟩 DPO
 ```bash
 python docs/codes/dpotrainer3.py
 ```
 
----
-
-### 5️⃣ Evaluation
-
+Evaluate with:
 ```bash
 python docs/codes/evaluate_model.py
 ```
 
-Metrics computed:
+---
 
-- 📊 METEOR  
-- 📈 BERTScore  
-- 📉 Average Perplexity  
-- 🔎 Coh-Metrix features  
+## 🧾 Results
+
+| Method      | METEOR | BERTScore | Perplexity |
+|-------------|--------|-----------|------------|
+| SFT         | 0.2909 | 0.6250    | 2.6040     |
+| SFT + DPO   | 0.2896 | 0.6596    | 2.0501     |
+| ORPO        | **0.3271** | **0.7316** | **1.5185** |
 
 ---
 
-## 📊 Experimental Setup
+## 📖 Paper & Citation
 
-- Base Model: SeaLLM-v3-1.5B-Chat  
-- Fine-tuning Strategies: SFT, DPO, ORPO  
-- Evaluation Metrics: Translation quality, semantic similarity, perplexity  
-- Hardware: Single-GPU training environment  
+📄 **Pestaway: A Pest Management Chatbot with Integrated Speech Capability**  
+Accepted at IEEE Region 10 Conference (TENCON 2025)
 
----
-
-## 🛡 Security & Data Policy
-
-- No access tokens included  
-- No private datasets included  
-- No model weights included  
-- Users must provide their own credentials and datasets  
-
----
-
-## 🙏 Acknowledgment
-
-This research was conducted at the Department of Electronics Engineering,  
-Faculty of Engineering, University of Santo Tomas.
-
-We thank Bulacan Agricultural State College and the local farming communities in Bulacan for their support and collaboration.
-
----
-
-## 📜 Citation
-
-If you find this work useful, please consider citing:
+Cite as:
 
 ```bibtex
 @inproceedings{delacruz2025pestaway,
   title     = {Pestaway: A Pest Management Chatbot with Integrated Speech Capability},
-  author    = {Dela Cruz, Rachel Hannah C. and Aguarin, Joshua Carlo C. and
-               Ling, Nickolas Chase P. and Magsaysay, Maveric S. and
-               Villanueva, Jastin Brylle C. and Pangaliman, Ma. Madecheen S.},
+  author    = {Dela Cruz, Rachel Hannah C. and Aguarin, Joshua Carlo C. and Ling, Nickolas Chase P. and
+               Magsaysay, Maveric S. and Villanueva, Jastin Brylle C. and Pangaliman, Ma. Madecheen S.},
   booktitle = {2025 IEEE Region 10 Conference (TENCON)},
   year      = {2025},
   month     = {October},
@@ -203,6 +148,13 @@ If you find this work useful, please consider citing:
 
 ---
 
+## 📫 Contact
+
+**Team Pestaway** — University of Santo Tomas  
+Feel free to open issues, discuss, or contribute.
+
+---
+
 ## ⭐ Support
 
-If this repository supports your research or extension work, please consider starring the project.
+If you find this useful, please ⭐ the repo!
