@@ -78,6 +78,8 @@
 
     .btn.ghost { background: var(--panel); color: var(--ink); border-color: var(--border); }
     .btn.ghost:hover { background: var(--chip); border-color: var(--brand); }
+
+    /* Keep disabled for future use only */
     .btn.disabled { opacity:.55; cursor:not-allowed; pointer-events:none; }
 
     section.card { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 32px; margin: 26px 0; box-shadow: var(--shadow); }
@@ -173,8 +175,14 @@
         <span class="pretitle">Accepted in <a href="https://ieeemy.org/tencon2025/" target="_blank" rel="noopener">IEEE TENCON 2025</a></span>
         <span class="pretitle">🏆 FUSERS 2025 • 1st Runner-up • Best Video Presentation</span>
       </div>
+
       <h1>Pestaway: A Pest Management Chatbot with Integrated Speech Capability</h1>
-      <p class="subtitle">A bilingual conversational assistant that integrates speech input/output to help Filipino farmers identify pests, learn safe mitigation approaches, and access pest management information in English and Tagalog.</p>
+
+      <p class="subtitle">
+        A bilingual conversational assistant that integrates speech input/output to help Filipino farmers identify pests, learn safe mitigation approaches,
+        and access pest management information in English and Tagalog.
+      </p>
+
       <div class="authors">
         <span>Rachel Hannah C. Dela Cruz</span>
         <span>•</span>
@@ -188,10 +196,21 @@
         <span>•</span>
         <a href="https://www.ust.edu.ph/profile/pangaliman-ma-madecheen-s/" target="_blank" rel="noopener">Ma. Madecheen S. Pangaliman</a>
       </div>
+
       <div class="affil">Department of Electronics Engineering, Faculty of Engineering, University of Santo Tomas</div>
+
       <div class="cta-row">
         <a class="btn primary" href="https://ieeexplore.ieee.org/document/11375077" target="_blank" rel="noopener">📄 Paper</a>
-        <a class="btn ghost disabled" href="#" title="Code coming soon" aria-disabled="true" role="button">💻 Code (Coming Soon)</a>
+
+        <!-- ENABLED CODE BUTTON (points to the codes folder in this repo) -->
+        <a class="btn ghost"
+           href="https://github.com/pestaway-ust/pestaway-ust.github.io/tree/main/docs/codes"
+           target="_blank"
+           rel="noopener"
+           title="View code">
+          💻 Code
+        </a>
+
         <a class="btn ghost" href="#bibtex">📋 BibTeX</a>
       </div>
     </div>
@@ -200,13 +219,13 @@
     <section id="abstract" class="card">
       <h2>📄 Abstract</h2>
       <p>
-        We present Pestaway, a bilingual conversational assistant for Filipino farmers that uses Large Language Models to provide 
-        interactive and speech-enabled pest management solutions. Addressing challenges farmers faced with limited access to accurate 
-        pest control information, Pestaway integrates Whisper speech-to-text and Google Text-to-Speech technologies with a fine-tuned 
-        SeaLLM model, enabling natural voice-based and text-based interaction in both English and Tagalog. The system supports both 
-        voice and text modalities for flexible interaction during fieldwork. We conclude with performance benchmarks, user satisfaction 
-        analysis from farmers and agricultural students, and recommendations for future enhancements. The source code can be accessed via 
-        <a href="https://github.com/pestaway-ust/pestaway" target="_blank" rel="noopener">https://github.com/pestaway-ust/pestaway</a>.
+        We present Pestaway, a bilingual conversational assistant for Filipino farmers that uses Large Language Models to provide
+        interactive and speech-enabled pest management solutions. Addressing challenges farmers faced with limited access to accurate
+        pest control information, Pestaway integrates Whisper speech-to-text and Google Text-to-Speech technologies with a fine-tuned
+        SeaLLM model, enabling natural voice-based and text-based interaction in both English and Tagalog. The system supports both
+        voice and text modalities for flexible interaction during fieldwork. We conclude with performance benchmarks, user satisfaction
+        analysis from farmers and agricultural students, and recommendations for future enhancements. The source code can be accessed via
+        <a href="https://github.com/pestaway-ust/pestaway-ust.github.io/tree/main/docs/codes" target="_blank" rel="noopener">https://github.com/pestaway-ust/pestaway-ust.github.io/tree/main/docs/codes</a>.
       </p>
     </section>
 
@@ -214,7 +233,9 @@
     <section id="teaser" class="card">
       <h2>🎥 Teaser Video</h2>
       <div class="video-container">
-        <iframe src="https://www.youtube.com/embed/VyHBs1u-9Cg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/VyHBs1u-9Cg" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
       </div>
     </section>
 
@@ -222,10 +243,10 @@
     <section id="overview" class="card">
       <h2>🗺️ System Overview</h2>
       <p>
-        Pestaway is a conversational assistant that integrates speech input/output to help users quickly identify household 
-        and agricultural pests, learn safe mitigation approaches, and log actions. The system employs a three-component pipeline: 
-        users interact through <strong>Whisper STT</strong> for speech recognition, the fine-tuned <strong>SeaLLM-v3-1.5B-Chat model</strong> 
-        processes the request and generates pest management guidance, and <strong>Google TTS (gTTS)</strong> delivers the response through 
+        Pestaway is a conversational assistant that integrates speech input/output to help users quickly identify household
+        and agricultural pests, learn safe mitigation approaches, and log actions. The system employs a three-component pipeline:
+        users interact through <strong>Whisper STT</strong> for speech recognition, the fine-tuned <strong>SeaLLM-v3-1.5B-Chat model</strong>
+        processes the request and generates pest management guidance, and <strong>Google TTS (gTTS)</strong> delivers the response through
         natural speech output. The system is designed for modest hardware and field deployment.
       </p>
       <div style="text-align: center; background: white; padding: 20px; border-radius: var(--radius-lg); margin: 20px 0;">
@@ -246,8 +267,8 @@
     <section id="results" class="card">
       <h2>📊 Results</h2>
       <p>
-        The evaluation compared different training methods: Supervised Fine-Tuning (SFT), SFT with Direct Preference 
-        Optimization (DPO), and Odds Ratio Preference Optimization (ORPO). Metrics include METEOR (translation quality), 
+        The evaluation compared different training methods: Supervised Fine-Tuning (SFT), SFT with Direct Preference
+        Optimization (DPO), and Odds Ratio Preference Optimization (ORPO). Metrics include METEOR (translation quality),
         BERTScore (semantic similarity), and Average Perplexity (model confidence).
       </p>
       <h3>📈 Performance Metrics Comparison</h3>
