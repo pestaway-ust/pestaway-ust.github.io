@@ -1,18 +1,24 @@
-<h1 align="center">Pestaway</h1>
+<h1 align="center">🌾 Pestaway</h1>
 
 <p align="center">
-  <strong>Pest Management Chatbot with Integrated Speech Capability</strong>
+  <em>Pest Management Chatbot with Integrated Speech Capability</em>
 </p>
 
 <p align="center">
-  IEEE TENCON 2025 &nbsp;•&nbsp; FUSERS 2025 1st Runner-Up
+  <img alt="TENCON 2025 Accepted" src="https://img.shields.io/badge/TENCON%202025-Accepted-2ea44f">
+  <img alt="FUSERS 2025 1st Runner-Up" src="https://img.shields.io/badge/FUSERS%202025-1st%20Runner--Up-3b82f6">
+  <img alt="License MIT" src="https://img.shields.io/badge/License-MIT-f59e0b">
 </p>
 
 <p align="center">
-  <a href="https://ieeexplore.ieee.org/document/11375077">Paper</a> |
-  <a href="https://pestaway-ust.github.io/">Project Page</a> |
-  <a href="https://github.com/pestaway-ust/pestaway-ust.github.io/tree/main/docs/codes">Code</a>
+  📄 <a href="https://ieeexplore.ieee.org/document/11375077"><strong>Paper</strong></a>
+  &nbsp;•&nbsp;
+  🌐 <a href="https://pestaway-ust.github.io/"><strong>Project Page</strong></a>
+  &nbsp;•&nbsp;
+  💻 <a href="https://github.com/pestaway-ust/pestaway-ust.github.io/tree/main/docs/codes"><strong>Code</strong></a>
 </p>
+
+---
 
 ---
 
