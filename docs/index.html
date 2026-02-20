@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Pestaway: Pest Management Chatbot with Speech</title>
-  <meta name="description" content="Pestaway: A Pest Management Chatbot with Integrated Speech Capability. Accepted in TENCON 2025." />
+  <meta name="description" content="Pestaway: A Pest Management Chatbot with Integrated Speech Capability. Published in IEEE TENCON 2025." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -26,127 +26,55 @@
     }
 
     * { box-sizing: border-box; }
-    html, body { height: 100%; }
-
     body {
       margin: 0;
       font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       color: var(--ink);
       background: linear-gradient(135deg, #1a1f16 0%, #232b1e 50%, #1e2519 100%);
-      background-attachment: fixed;
-      line-height: 1.55;
-      letter-spacing: .02em;
+      line-height: 1.6;
     }
-
-    a { color: var(--brand); text-decoration: none; }
-    a:hover { text-decoration: underline; }
 
     .wrap { max-width: var(--maxw); margin: 0 auto; padding: 24px; }
 
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 40;
-      backdrop-filter: blur(10px);
-      background: linear-gradient(to bottom, rgba(26,31,22,.95), rgba(26,31,22,.8) 60%, rgba(26,31,22,0));
-      border-bottom: 1px solid var(--border);
-    }
-
-    .nav {
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:16px;
-      padding: 10px 24px;
-    }
-
-    .logo { font-weight: 800; }
-
-    .nav a.btn-sm {
-      padding:8px 14px;
-      border-radius: 999px;
-      border:1px solid var(--border);
-      background: var(--panel);
-      color: var(--ink);
-    }
-
-    .nav a.btn-sm:hover {
-      border-color: var(--brand);
-      background: var(--chip);
-    }
-
-    .hero { padding: 56px 0 28px; }
-
-    .pretitle {
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:6px 10px;
-      border-radius: 999px;
-      background: var(--chip);
-      color: var(--muted);
-      font-weight:600;
-      font-size: 12px;
-      text-transform:uppercase;
-    }
+    .hero { padding: 60px 0 30px; }
 
     h1 {
-      margin: 14px 0 12px;
-      font-size: clamp(28px, 4.2vw, 56px);
-      line-height:1.05;
+      font-size: clamp(28px, 4vw, 54px);
+      line-height: 1.05;
+      margin-bottom: 12px;
     }
 
     .subtitle {
       color: var(--muted);
-      font-size: clamp(14px, 1.8vw, 17px);
-      margin-top: 12px;
-    }
-
-    .authors {
-      margin: 18px 0 8px;
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px 14px;
-      font-size: 17px;
-    }
-
-    .authors a {
-      color: var(--brand-2);
-      font-weight: 600;
-      text-decoration: underline;
-    }
-
-    .affil {
-      color: var(--muted);
-      font-size: 15px;
+      font-size: 16px;
+      margin-bottom: 18px;
     }
 
     .cta-row {
-      margin: 20px 0 0;
       display:flex;
-      flex-wrap:wrap;
       gap:12px;
+      flex-wrap:wrap;
+      margin-top:20px;
     }
 
     .btn {
       display:inline-flex;
       align-items:center;
-      gap:10px;
-      font-weight:700;
+      gap:8px;
       padding: 12px 18px;
       border-radius: 12px;
-      border: 1px solid var(--border);
+      font-weight:700;
       text-decoration:none;
       transition: all .15s ease;
       box-shadow: var(--shadow);
+      border: 1px solid var(--border);
     }
 
     .btn:hover {
       transform: translateY(-2px);
-      text-decoration: none;
     }
 
-    /* ===== FIX 1 APPLIED HERE ===== */
+    /* FIX 1 styling */
     .btn.primary {
       background: linear-gradient(135deg, #a6e06d, #7cb342);
       color: #1a1f16;
@@ -157,52 +85,52 @@
     .btn.primary:hover {
       box-shadow: 0 10px 22px rgba(124, 179, 66, 0.5);
     }
-    /* ================================= */
 
     .btn.ghost {
       background: var(--panel);
       color: var(--ink);
-      border-color: var(--border);
-    }
-
-    .btn.ghost:hover {
-      background: var(--chip);
-      border-color: var(--brand);
     }
 
     .btn.disabled {
       opacity:.55;
-      cursor:not-allowed;
       pointer-events:none;
+      cursor:not-allowed;
     }
 
     section.card {
       background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-xl);
       padding: 32px;
-      margin: 26px 0;
-      box-shadow: var(--shadow);
+      border-radius: var(--radius-xl);
+      margin: 40px 0;
+      border: 1px solid var(--border);
     }
 
     section.card h2 {
-      margin: 0 0 16px;
-      font-size: clamp(22px, 2.8vw, 32px);
       color: var(--brand-2);
+      margin-bottom: 16px;
     }
 
     section.card p {
-      margin: 12px 0;
       color: var(--muted);
-      line-height: 1.7;
       text-align: justify;
     }
 
-    footer {
-      color: var(--muted);
+    .codebox {
+      background: #1a1f16;
+      border-radius: var(--radius-md);
+      border:1px solid var(--border);
+      padding: 20px;
+      font-family: 'JetBrains Mono', monospace;
       font-size: 13px;
-      padding: 40px 0;
+      color: var(--brand-2);
+      white-space: pre;
+      overflow-x:auto;
+    }
+
+    footer {
       text-align:center;
+      padding: 40px 0;
+      color: var(--muted);
       border-top: 1px solid var(--border);
       margin-top: 60px;
     }
@@ -211,17 +139,16 @@
 
 <body>
 
-<header>
-  <div class="nav wrap">
-    <div class="logo">🌾 Pestaway</div>
-  </div>
-</header>
-
 <main class="wrap">
 
   <div class="hero">
 
     <h1>Pestaway: A Pest Management Chatbot with Integrated Speech Capability</h1>
+
+    <p class="subtitle">
+      Published in IEEE TENCON 2025. A bilingual conversational assistant
+      integrating speech technologies to assist Filipino farmers in pest management.
+    </p>
 
     <div class="cta-row">
       <a class="btn primary"
@@ -242,8 +169,32 @@
 
   </div>
 
+  <!-- BibTeX Section -->
+  <section id="bibtex" class="card">
+    <h2>📝 BibTeX</h2>
+    <p>If you find Pestaway useful in your research, please consider citing:</p>
+
+    <div class="codebox">
+@inproceedings{delacruz2025pestaway,
+  title     = {Pestaway: A Pest Management Chatbot with Integrated Speech Capability},
+  author    = {Dela Cruz, Rachel Hannah C. and
+               Aguarin, Joshua Carlo C. and
+               Ling, Nickolas Chase P. and
+               Magsaysay, Maveric S. and
+               Villanueva, Jastin Brylle C. and
+               Pangaliman, Ma. Madecheen S.},
+  booktitle = {2025 IEEE Region 10 Conference (TENCON)},
+  year      = {2025},
+  address   = {Kota Kinabalu, Sabah, Malaysia},
+  month     = {October},
+  doi       = {10.1109/TENCON66050.2025.11375077},
+  url       = {https://ieeexplore.ieee.org/document/11375077}
+}
+    </div>
+  </section>
+
   <footer>
-    © <span id="yr"></span> Pestaway Team • University of Santo Tomas
+    © <span id="yr"></span> Pestaway Team • University of Santo Tomas, Manila, Philippines
   </footer>
 
 </main>
